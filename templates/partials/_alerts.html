@@ -1,0 +1,21 @@
+<!-- Error Output-->
+{% if messages %}
+<!-- Loop through each message -->
+{% for message in messages %}
+<div id="messagge" class="container">
+  <div
+    class="alert alert-{{ message.tags }} alert-dismissible text-center"
+    role="alert"
+  >
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} Error: {% else %}
+      <!-- This will happen-->
+      {{ message.tags|title }} {% endif %}
+    </strong>
+    {{ message }}
+  </div>
+</div>
+{% endfor %} {% endif %}
